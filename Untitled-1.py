@@ -1,3 +1,10 @@
+import discord
+import os
+
+
+client = discord.Client()
+
+
 @client.event
 
 async def on_message(message):
@@ -19,4 +26,6 @@ async def on_message(message):
             await message.delete()
             await message.channel.send(embed=discord.Embed(title="권한 부족", description = message.author.mention + "님은 권한이 없습니다", color = 0xff0000))
 
-bot.run(MTMyMDIwOTgzOTI0NjU0NDk4Nw.GoxN1r.i1lwNqDTi3zXHDmp8ObPpn6BlRR24DmwAO3rGo)
+
+access_token = os.enviren["BOT_TOKEN"]
+client.run(access_token)
